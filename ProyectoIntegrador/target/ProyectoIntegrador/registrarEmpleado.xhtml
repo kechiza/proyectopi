@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="plantilla/general.xhtml">
+	
+		<ui:define name="contenido">
+	
+			<div id="container">
+			
+				<h:form>
+		       	<h3>Registrar Empleado</h3>
+		       	<h:panelGrid id = "panel" columns = "3" border = "1" cellpadding = "10" cellspacing = "1" >
+		       		 <f:facet name = "header">
+					      <h:outputText value = "Registrar"/>
+					 </f:facet>
+					 
+					   <h:outputLabel value = "Nombre:"/>
+					   <h:inputText  value="#{empleadoJSF.nombre}" required="true" 	id="txtNombre" requiredMessage="Nombre es requerido."/>
+					   <h:message for="txtNombre" style="color: red;"/>
+					   
+					   
+					   <h:outputLabel value = "Apellido:"/>
+					   <h:inputText  value="#{empleadoJSF.apellido}" required="true" id="txtApellido" requiredMessage="Apellido es requerido."/>
+					   <h:message for="txtApellido" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Usuario:"/>
+					   <h:inputText  value="#{empleadoJSF.usuario}" required="true" id="txtUsuario" requiredMessage="Usuario es requerido."/>
+					   <h:message for="txtUsuario" style="color: red;"/>
+					    
+					   <h:outputLabel value = "Clave:"/>
+					   <h:inputText  value="#{empleadoJSF.clave}" required="true" id="txtClave" requiredMessage="Clave es requerido."/>
+					   <h:message for="txtClave" style="color: red;"/>
+					   
+					   <h:outputLabel value = "DNI:"/>
+					   <h:inputText  value="#{empleadoJSF.dni}" required="true" id="txtDni" requiredMessage="Clave es requerido." maxlength="8" />
+					   <h:message for="txtDni" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Sexo:"/>
+					   <h:selectOneRadio value="#{empleadoJSF.sexo}" required="true" id="rbnSexo" requiredMessage="Sexo es requerido.">
+					   		<f:selectItem itemLabel="Hombre" itemValue="H"/>
+					   		<f:selectItem itemLabel="Mujer" itemValue="M"/>
+					   </h:selectOneRadio>
+					   <h:message for="rbnSexo" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Rol:"/>
+					   <h:selectOneMenu value="#{empleadoJSF.rol}" required="true" id="cboRol" requiredMessage="Rol es requerido.">
+					   		<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+					   		<f:selectItem itemLabel="Jefe" itemValue="JEFE"/>
+					   		<f:selectItem itemLabel="Operador" itemValue="OPERADOR"/>
+					   		<f:selectItem itemLabel="Gerencia" itemValue="GERENCIA"/>
+					   </h:selectOneMenu>
+					    <h:message for="cboRol" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Fecha de Nacimiento:" />
+					   <h:inputText  value="#{empleadoJSF.fechaNacimiento}" required="true" id="txtFecNac" requiredMessage="Fecha Nacimiento es requerido.(dd/MM/yyyy)">
+					   		<f:convertDateTime pattern="dd/MM/yyyy" />
+					   </h:inputText>
+					   <h:message for="txtFecNac" style="color: red;"/>
+					   
+					   <f:facet name = "footer">
+					      <h:panelGroup style = "display:block; text-align:center">
+					         <h:commandButton  value = "Registrar" action="#{empleadoJSF.eventoRegistrarEmpleado}"/>
+					         <h:commandButton  value = "Limpiar" action="#{empleadoJSF.eventoLimpiarFormulario}"/>
+					      </h:panelGroup>
+					   </f:facet>
+					   
+		       	</h:panelGrid>
+		       	
+
+		       	
+				
+	  
+	        </h:form>
+	        	<p>
+				 <h:link outcome="listadoEmpleados">Listar Empleados</h:link>&nbsp;&nbsp;
+	  			</p>	
+				
+			</div>
+			
+
+	</ui:define>
+
+
+
+
+</ui:composition>

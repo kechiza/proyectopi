@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<f:view>
+	
+		 <h:head> 
+		 	<title><h:outputText value="Hola Primefaces"/></title>
+		 	<h:outputStylesheet name="comun.css" library="css" />
+		 </h:head>
+		 
+		 <h:body>
+		 	<h:panelGroup id="PaginaCompleta"> 
+		 	 
+		 		<h:form id="FormularioMensaje" styleClass="Growl" style="font-size: 12px;"> 								
+   					<p:growl id="growl"  showDetail="true" sticky="true"/>
+   				</h:form>   
+   				
+   				<div>
+   					<table width="100%" border="0" cellspacing="0">
+   						<tr>
+							<td width="10%" valign="bottom">
+								<p:graphicImage value="webapp/resources/imagenes/home/java.png" width="64"/>
+							</td>
+							<td width="40%" valign="middle" align="left">
+								<b>Fecha y Hora: </b> <p:clock pattern="HH:mm:ss dd/MM/yyyy" />
+							</td>
+							<td width="50%" align="left" valign="middle">
+								<span style="font-size: 20px;">Bienvenido: #{objetoUsuarioSesion.nombre} #{objetoUsuarioSesion.apellido}</span>
+							</td>					
+						</tr>
+   					</table>
+   				</div>
+   				
+   				
+   				  <!-- Main header -->
+				<ui:insert name="cabecera" >
+					
+						<h:form id="FormularioCabecera">
+							<p:menubar>
+					
+						
+			        		<p:submenu label="Mantenimientos" icon="ui-icon-document" >
+						            <p:submenu label="Operaciones" icon="ui-icon-contact">
+						            	<p:menuitem value="Empleados" action="#{empleadoJSF.initPantalla}" ajax="false"/> 
+						            	<p:menuitem value="Productos" action="#{productoJSF.initPantalla}" ajax="false"/> 
+						            	<p:menuitem value="Marca" action="#{marcaJSF.initPantalla}" ajax="false"/> 						                
+						            </p:submenu>
+						            <p:separator />
+						      		<p:submenu label="Logistica" icon="ui-icon-contact">
+						      			 <p:menuitem value="Proveedores" action="#"  ajax="false"/>
+						      			 <p:menuitem value="Primefaces" url="http://www.primefaces.org" />
+						            </p:submenu>
+						        </p:submenu>
+						 
+						        <p:submenu label="Reportes" icon="ui-icon-pencil">
+						        </p:submenu>
+						  
+						 
+						        <p:submenu label="Planificación" icon="ui-icon-help" >
+						        </p:submenu>
+					
+						        <p:submenu label="Configuración" icon="ui-icon-gear" >
+						        </p:submenu>
+					
+						 
+						        <f:facet name="options">
+						            <p:commandButton value="Cerrar Sesion" icon="ui-icon-extlink" action="#{seguridadJSF.eventoCerrarSesion}" ajax="false"/>
+						        </f:facet>
+						    </p:menubar>
+				
+						</h:form>
+	
+					
+				</ui:insert>
+									
+	   		
+				 <!-- Main body -->
+			 	<div id="DivBodyBackground" align="center" >
+			 		<ui:insert name="contenido"/>			 				 			 
+				</div>
+			
+		 	</h:panelGroup>
+		 </h:body>
+	
+	</f:view>
+
+</html>

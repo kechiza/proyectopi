@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view>
+	<h:head>
+		<title>Inicio Sistema!!!</title>
+		<style type="text/css">
+		body{
+		   	font-family: verdana;
+		}
+		</style>
+	</h:head>
+
+	<h:body>
+		<h:form>
+	       	<h3>Por favor, introduzca su Usuario y Clave.</h3>
+			<table>
+				<tr>
+					<td>Usuario:</td>
+					<td>
+						<h:inputText value="#{seguridadJSF.usuario}" required="true" 
+							id="txtUsuario" requiredMessage="Usuario es requerido." />
+						<h:message for="txtUsuario" style="color: red;"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Clave:</td>
+					<td>
+						<h:inputSecret value="#{seguridadJSF.clave}" required="true" 
+							id="txtClave" requiredMessage="Clave es requerido." />
+						<h:message for="txtClave" style="color: red;"/>
+					</td>
+				</tr>
+			</table>
+			<p>
+			
+			 <h:commandButton  value="Ingresar" action="#{seguridadJSF.eventoLogueo}"/>
+        
+             <h:messages  globalOnly="true"/>
+			</p>
+  
+        </h:form>
+	
+	
+	</h:body>
+</f:view>
+	
+
+</html>

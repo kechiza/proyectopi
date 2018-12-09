@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="plantilla/general.xhtml">
+	
+		<ui:define name="contenido">
+	
+			<div id="container">
+			
+				<h:form>
+		       	<h3>Actualizar producto</h3>
+		       	<h:panelGrid id = "panel" columns = "3" border = "1" cellpadding = "10" cellspacing = "1" >
+		       		 <f:facet name = "header">
+					      <h:outputText value = "Actualizar"/>
+					 </f:facet>
+					 
+					 <h:outputLabel value = "ID:"/>
+					   <h:inputText  value="#{productoJSF.id}" required="true" 	id="txtId" requiredMessage="ID es requerido."/>
+					   <h:message for="txtId" style="color: red;"/>
+					 
+					   <h:outputLabel value = "Nombre:"/>
+					   <h:inputText  value="#{productoJSF.nombre}" required="true" 	id="txtNombre" requiredMessage="Nombre es requerido."/>
+					   <h:message for="txtNombre" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Presentacion"/>
+					   <h:selectOneMenu value="#{productoJSF.idpresentacion}" required="true" id="cboCategoria" requiredMessage="Presentacion es requerido.">
+					   		<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+					   		<f:selectItem itemLabel="Ciento" itemValue="1"/>
+					   		<f:selectItem itemLabel="Unidad" itemValue="2"/>
+					   		
+					   </h:selectOneMenu>
+					    <h:message for="cboCategoria" style="color: red;"/>
+					    
+					   <h:outputLabel value = "Marca"/>
+					   <h:selectOneMenu value="#{productoJSF.idmarca}" required="true" id="cboMarca" requiredMessage="Marca es requerido.">
+					   		<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+					   		<f:selectItem itemLabel="Vinifan" itemValue="1"/>
+					   		<f:selectItem itemLabel="Stanford" itemValue="2"/>
+					   		
+					   </h:selectOneMenu>
+					    <h:message for="cboMarca" style="color: red;"/>
+					    
+					       <h:outputLabel value = "Proveedor"/>
+					   <h:selectOneMenu value="#{productoJSF.idproveedor}" required="true" id="cboProveedor" requiredMessage="proveedor es requerido.">
+					   		<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+					   		<f:selectItem itemLabel="Continental" itemValue="1"/>
+					   		<f:selectItem itemLabel="Copy Ventas" itemValue="2"/>
+					   		
+					   </h:selectOneMenu>
+					    <h:message for="cboProveedor" style="color: red;"/>
+					    
+					       <h:outputLabel value = "Zona"/>
+					   <h:selectOneMenu value="#{productoJSF.idzona}" required="true" id="cboZona" requiredMessage="Zona es requerido.">
+					   		<f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+					   		<f:selectItem itemLabel="2A" itemValue="1"/>
+					   		<f:selectItem itemLabel="3B" itemValue="2"/>
+					   		
+					   </h:selectOneMenu>
+					    <h:message for="cboZona" style="color: red;"/>
+					    
+					   <h:outputLabel value = "Codigo"/>
+					   <h:inputText  value="#{productoJSF.codigo}" required="true" id="txtCodigo" requiredMessage="Codigo es requerido."/>
+					   <h:message for="txtCodigo" style="color: red;"/>  
+					   
+					   <h:outputLabel value = "Precio"/>
+					   <h:inputText  value="#{productoJSF.precio}" required="true" id="txtApellido" requiredMessage="Apellido es requerido."/>
+					   <h:message for="txtApellido" style="color: red;"/>
+					   
+					   <h:outputLabel value = "Stock"/>
+					   <h:inputText  value="#{productoJSF.stock}" required="true" id="txtUsuario" requiredMessage="Usuario es requerido."/>
+					   <h:message for="txtUsuario" style="color: red;"/>
+					   
+					     <h:outputLabel value = "IVA"/>
+					   <h:inputText  value="#{productoJSF.iva}" required="true" id="txtIva" requiredMessage="IVA es requerido."/>
+					   <h:message for="txtIva" style="color: red;"/>
+					   
+					     <h:outputLabel value = "Peso"/>
+					   <h:inputText  value="#{productoJSF.peso}" required="true" id="txtPeso" requiredMessage="Peso es requerido."/>
+					   <h:message for="txtPeso" style="color: red;"/>
+					    
+					
+
+					   
+					   <f:facet name = "footer">
+					      <h:panelGroup style = "display:block; text-align:center">
+					         <h:commandButton  value = "Actualizar" action="#{productoJSF.eventoActualizarProducto}"/>
+					         <h:commandButton  value = "Limpiar" action="#{productoJSF.eventoLimpiarFormularioActualizar}"/>
+					      </h:panelGroup>
+					   </f:facet>
+					   
+		       	</h:panelGrid>
+		       	
+				<p>
+				 <h:link outcome="listadoProducto">Listar Productos</h:link>&nbsp;&nbsp;
+			
+	  			</p>	
+		       	
+				
+	  
+	        </h:form>
+				
+			</div>
+			
+
+	</ui:define>
+
+
+
+
+</ui:composition>

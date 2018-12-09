@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="plantilla/general.xhtml">
+	
+		<ui:define name="contenido">
+		
+			<h:form id="FormularioEmpleado">
+			
+				<br/>
+		       	<h3>Lista Empleados</h3>
+		
+			       	<p:dataTable var="objEmpleado" value="#{empleadoJSF.lstEmpleado}" style="width:90%"
+			       		paginator="true" rows="10" paginatorTemplate="{FirstPageLink} {PageLinks} {LastPageLink}">
+			       	
+						  <p:column headerText="Nombre">
+						        #{objEmpleado.nombre}
+						 </p:column>
+						  <p:column headerText="Apellido">
+						        #{objEmpleado.apellido}
+						 </p:column>
+						  <p:column headerText="DNI">
+						        #{objEmpleado.dni}
+						 </p:column>
+						 <p:column headerText="Fecha Nacimiento">
+						        #{objEmpleado.fecha_nacimiento}
+						 </p:column>
+						  <p:column headerText="Usuario">
+						        #{objEmpleado.usuario}
+						 </p:column>
+						 <p:column headerText="" style="width:70px">  
+								 <p:commandButton  icon="ui-icon-close" style="font-size: 80%" title="Eliminar Empleado"  
+								                  	actionListener="#{empleadoJSF.eventoEliminarEmpleado}"   update=":FormularioEmpleado"   process="@this"   >  
+								        <f:setPropertyActionListener value="#{objEmpleado.id}" target="#{empleadoJSF.id}" />
+								 </p:commandButton>
+								 <p:commandButton  icon="ui-icon-pencil" style="font-size: 80%" title="Editar Empleado"  
+								                  	actionListener="#{empleadoJSF.eventoIrActualizar}"  ajax="false" update=":FormularioEmpleado"   process="@this"   >  
+								         <f:setPropertyActionListener value="#{objEmpleado.id}" target="#{empleadoJSF.id}" />
+								 </p:commandButton>
+						 </p:column> 
+						
+			       	</p:dataTable>
+			       	
+
+			   	<p>
+				 <h:link outcome="registrarEmpleado">Registrar Empleado</h:link>&nbsp;&nbsp;
+	  			</p>	
+	
+	        </h:form>
+		</ui:define>
+
+</ui:composition>

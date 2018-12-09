@@ -1,0 +1,9 @@
+<!-- 				    <p:panel header="Growl">   -->
+<!-- 				    	<p:growl id="growl"  showDetail="true" sticky="true"/> -->
+<!-- 					    <h:panelGrid columns="3" cellpadding="5">   -->
+<!-- 				            <p:inputText  value="#{empleadoJSF.message}" required="true" requiredMessage="Mensaje Requerido."/>   -->
+<!-- 				            <p:inputText  value="" required="true" requiredMessage="Mensaje2 Requerido."/>    -->
+<!-- 				        </h:panelGrid>   -->
+
+<!--    							<p:commandButton value="Save" actionListener="#{empleadoJSF.saveMessage}"  update=":FormularioMensaje"  />   -->
+<!-- 				    </p:panel>  -->

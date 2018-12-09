@@ -1,0 +1,35 @@
+body {
+	font-family: Verdana;
+	font-size: 12px;
+	background-color:#EEE;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	
+}
+
+/*
+.Growl {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+	
+.Center {
+	text-align: center;
+}
+
+table.tabla {
+	border-collapse: collapse;
+	border-spacing:15; 
+}
+
+table.tabla td {
+	border:0;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.Cursiva {
+	font-style:italic
+}
+*/
